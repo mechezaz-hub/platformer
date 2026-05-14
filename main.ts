@@ -48,14 +48,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.jewels.jewel3, function (sprite, 
     info.changeLifeBy(info.score())
     tiles.setTileAt(location, assets.tile`baseTransparency16`)
 })
-radio.onReceivedMessage(RadioMessage.message1, function () {
-    animation.runMovementAnimation(
-    mySprite,
-    animation.animationPresets(animation.parachuteRight),
-    2000,
-    true
-    )
-})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(myEnemy, effects.coolRadial, 1000)
     info.changeLifeBy(-1)
@@ -63,7 +55,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let myEnemy: Sprite = null
 let mySprite: Sprite = null
-radio.sendMessage(RadioMessage.message1)
 info.setLife(100)
 scene.setBackgroundImage(assets.image`Forest`)
 tiles.placeOnRandomTile(mySprite, sprites.builtin.forestTiles3)
